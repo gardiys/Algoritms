@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/StepicProject.iml" filepath="$PROJECT_DIR$/.idea/StepicProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Algoritms.iml" filepath="$PROJECT_DIR$/.idea/Algoritms.iml" />
     </modules>
   </component>
 </project>
