@@ -15,6 +15,14 @@ def get_z(s):
             r = z[i] + i - 1
     return z
 
-if __name__ == "__main__":
-    s = input()
-    print(len(s),*get_z(s)[1:])
+# Количество различных подстрок в строке за O(n^2)
+s = input()
+n = len(s)
+k = 1
+p = s[0]
+for i in range(1,n):
+    p += s[i]
+    z = max(get_z(p[::-1]))
+    k += len(p)-z
+print(k)
+

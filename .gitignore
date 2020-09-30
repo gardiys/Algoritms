@@ -5,7 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
-
+RuCode
 # Distribution / packaging
 .Python
 build/

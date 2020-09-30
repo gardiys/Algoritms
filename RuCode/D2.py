@@ -15,6 +15,15 @@ def get_z(s):
             r = z[i] + i - 1
     return z
 
-if __name__ == "__main__":
-    s = input()
-    print(len(s),*get_z(s)[1:])
+a = input()
+b = input()
+n = len(a)
+t = len(b)
+z = get_z(b+"$"+a)
+
+res = []
+for i in range(t+1,n+t+1):
+    if z[i] == len(b):
+        res.append(i-t)
+print(len(res))
+print(*res)
