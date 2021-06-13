@@ -1,45 +1,38 @@
-def hoar_sort(a:list) -> list:
-    if len(a) <= 1:
-        return a
-    barrier = a[0]
-    l = []
-    m = []
-    r = []
-    for x in a:
-        if x < barrier:
-            l.append(x)
-        elif x == barrier:
-            m.append(x)
-        else:
-            r.append(x)
-    l = hoar_sort(l)
-    r = hoar_sort(r)
-    k = 0
-    for x in l+m+r:
-        a[k] = x
-        k += 1
+def quick_sort(a, p=None, r=None):
+    """
+    :param a: Список чисел
+    :param p: Левая граница списка
+    :param r: Правая граница списка
+    :return: Отсортированный список
+    """
+    if p is None or r is None:
+        p, r = 0, len(a)-1
+
+    if p >= r:
+        return
+
+    q = partition(a,p,r)
+    quick_sort(a,p,q-1)
+    quick_sort(a,q+1,r)
+
     return a
 
-def quick_sort(a: list) -> list:
-    #TODO Закончить сортировку - не рабочий вариант
-    if len(a) <= 1:
-        return a
 
-    base = len(a) - 1
-    r = len(a) - 2
-    l = 0
+def partition(a,p,r):
+    q = p
+    # Суть цикла заключается в поиске элементов, которые меньше опорного.
+    # За опорный элемент берется a[r].
+    # После такого разделения мы получим элемент, который будет полностью отсортирован.
+    for u in range(p, r):
+        if a[u] <= a[r]:
+            a[q], a[u] = a[u], a[q]
+            q += 1
+    a[q], a[r] = a[r], a[q]
 
-    while l < r:
-        while l < len(a) and a[l] < a[base]:
-            l += 1
+    return q
 
-        while a[r] >= a[base] and l < r:
-            r -= 1
 
-        if l < r:
-            a[l], a[r] = a[r], a[l]
+if __name__ == "__main__":
+    from test import tester
 
-    a[l], a[base] = a[base], a[l]
-    return quick_sort(a[:l]) + quick_sort(a[l+1:])
-
-print(quick_sort([3,5,8,1,2,9,4,7,6]))
+    tester(quick_sort)
