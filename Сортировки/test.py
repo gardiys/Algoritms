@@ -2,7 +2,7 @@ def get_random_mass(n):
     import random
     a = [0] * n
     for i in range(n):
-        a[i] = random.randint(-1000, 1000)
+        a[i] = random.randint(0, 1000)
     return a
 
 
