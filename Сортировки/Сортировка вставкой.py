@@ -1,15 +1,16 @@
-def insertion_sort(a: [], n: int) -> []:
+def insertion_sort(a: []) -> []:
     """
     :param a: Список чисел
     :param n: Количество элементов
     :return: Отсортированный список
     """
-    for i in range(1, n):
+    for i in range(1, len(a)):
         j = i - 1
-        while j >= 0 and a[j] > a[i]:
+        key = a[i]
+        while j >= 0 and a[j] > key:
             a[j+1] = a[j]
             j -= 1
-        a[j+1] = a[i]
+        a[j+1] = key
     return a
 
 
